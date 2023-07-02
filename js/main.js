@@ -8,11 +8,11 @@ const fragment = document.createDocumentFragment();
 //con este addevent SWITCH llamamos a los botones de mostrar o no//
 document.addEventListener('click', (ev) => {
     
-    switch (ev.target) {
-        case btnMostrar: return pintarFotos();
-            break;
-        case btnOcultar: return esconderFotos();
-            break;
+    if (ev.target == btnMostrar) {
+        return pintarFotos();        
+    }
+    else if (ev.target == btnOcultar) {
+        return esconderFotos();
     }
     //con este condicional dentro del eventlistener hacemos que todo sobre lo que se haga click con clase fotico cambia la url de la foto de abajo//
     if (ev.target.classList.contains("fotico")) {
@@ -81,6 +81,8 @@ const pintarFotos = () => {
     btnMostrar.classList.add("ocultar")
     btnOcultar.classList.remove("ocultar")
     bannerBajo.classList.remove("ocultar")
+    bannerBajoTitulo.classList.remove("ocultar")
+    bannerBajoPie.classList.remove("ocultar")
 }
 
 
@@ -89,6 +91,8 @@ const esconderFotos = () => {
         contenedorFotos.removeChild(contenedorFotos.children[0]);
     }
     bannerBajo.classList.add("ocultar")
+    bannerBajoTitulo.classList.add("ocultar")
+    bannerBajoPie.classList.add("ocultar")
     btnOcultar.classList.add("ocultar")
     btnMostrar.classList.remove("ocultar")
 }
