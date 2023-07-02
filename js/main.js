@@ -8,29 +8,9 @@ const bannerBajo = document.querySelector("#bannerBajo img")
 const bannerBajoTitulo = document.querySelector("#bannerBajo h2")
 const bannerBajoPie = document.querySelector("#bannerBajo p")
 const fragment = document.createDocumentFragment();
-<<<<<<< HEAD
 
 
 // ARRAYS //
-=======
-//con este addevent SWITCH llamamos a los botones de mostrar o no//
-document.addEventListener('click', (ev) => {
-    
-    if (ev.target == btnMostrar) {
-        return pintarFotos();        
-    }
-    else if (ev.target == btnOcultar) {
-        return esconderFotos();
-    }
-    //con este condicional dentro del eventlistener hacemos que todo sobre lo que se haga click con clase fotico cambia la url de la foto de abajo//
-    if (ev.target.classList.contains("fotico")) {
-        bannerBajo.src = ev.target.src; 
-        bannerBajoTitulo.textContent = "Disfruta de " + ev.target.titulo; 
-        bannerBajoPie.textContent = ev.target.pie; 
-    } 
-    
-})
->>>>>>> 5caaf608b805608ebe3ce90f2d24fac868a3b843
 
 const arrayFotos = [{
     id: "foto1",
