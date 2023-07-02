@@ -1,0 +1,27 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    }
+
+ img {
+    width: 100%
+ }   
+
+ .flexContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap:20px;
+    justify-content: left;
+    flex-direction: row;
+
+ }
+
+ .ocultar {
+
+    display: none;
+ }
+ .flexContainer>* {
+ width: 30%;
+ }
