@@ -1,3 +1,6 @@
+
+// Declaración de VARIABLES --->>> //
+
 const contenedorFotos = document.querySelector("#contenedor-fotos");
 const btnMostrar = document.querySelector("#btnMostrar")
 const btnOcultar = document.querySelector("#btnOcultar")
@@ -5,23 +8,9 @@ const bannerBajo = document.querySelector("#bannerBajo img")
 const bannerBajoTitulo = document.querySelector("#bannerBajo h2")
 const bannerBajoPie = document.querySelector("#bannerBajo p")
 const fragment = document.createDocumentFragment();
-//con este addevent SWITCH llamamos a los botones de mostrar o no//
-document.addEventListener('click', (ev) => {
-    
-    switch (ev.target) {
-        case btnMostrar: return pintarFotos();
-            break;
-        case btnOcultar: return esconderFotos();
-            break;
-    }
-    //con este condicional dentro del eventlistener hacemos que todo sobre lo que se haga click con clase fotico cambia la url de la foto de abajo//
-    if (ev.target.classList.contains("fotico")) {
-        bannerBajo.src = ev.target.src; 
-        bannerBajoTitulo.textContent = "Disfruta de " + ev.target.titulo; 
-        bannerBajoPie.textContent = ev.target.pie; 
-    } 
-    
-})
+
+
+// ARRAYS //
 
 const arrayFotos = [{
     id: "foto1",
@@ -50,9 +39,32 @@ const arrayFotos = [{
     alt: "",
     titulo: "Viaje 4",
     pie: "foto 4"
-},
+}]
 
-]
+
+// DELEGACIÓN de EVENTOS --->>> //
+
+//con este addevent SWITCH llamamos a los botones de mostrar o no//
+document.addEventListener('click', (ev) => {
+    
+    switch (ev.target) {
+        case btnMostrar: return pintarFotos();
+            break;
+        case btnOcultar: return esconderFotos();
+            break;
+    }
+    //con este condicional dentro del eventlistener hacemos que todo sobre lo que se haga click con clase fotico cambia la url de la foto de abajo//
+    if (ev.target.classList.contains("fotico")) {
+        bannerBajo.src = ev.target.src; 
+        bannerBajoTitulo.textContent = "Disfruta tu " + ev.target.titulo; 
+        bannerBajoPie.textContent = ev.target.pie; 
+    } 
+    
+})
+
+
+// Declaración de FUNCIONES --->>> //
+
 //Aquí creamos las fotos con los ids, las clases, los títulos//
 const pintarFotos = () => {
     arrayFotos.forEach((item) => {
@@ -81,16 +93,17 @@ const pintarFotos = () => {
     btnMostrar.classList.add("ocultar")
     btnOcultar.classList.remove("ocultar")
     bannerBajo.classList.remove("ocultar")
+    bannerBajoTitulo.classList.remove("ocultar")
+    bannerBajoPie.classList.remove("ocultar")
 }
-
 
 const esconderFotos = () => {
     for (let i = 0; i < arrayFotos.length; i++) {
         contenedorFotos.removeChild(contenedorFotos.children[0]);
     }
     bannerBajo.classList.add("ocultar")
+    bannerBajoTitulo.classList.add("ocultar")
+    bannerBajoPie.classList.add("ocultar")
     btnOcultar.classList.add("ocultar")
     btnMostrar.classList.remove("ocultar")
 }
-
-
